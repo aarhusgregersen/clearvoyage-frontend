@@ -6,6 +6,8 @@ import RouteInfo from "./RouteInfo/RouteInfo";
 
 const API_PATH = "//127.0.0.1:3002";
 
+// * To further simplify app in the future, I proably would create a separate collection of types, in something like a types.ts file or using code colocation
+
 type TPort = {
   name: string;
   latitude: number;
@@ -40,12 +42,14 @@ type TRouteVessel = {
   width: number;
 };
 
+// * As the app grows and in order to keep things DRY, a good practice I would follow from here is to create separate files.
+// * Typically around the 3rd time I need to render the same thing, it makes sense to abstract that into a helper or separate component.
+
 function App() {
   const [vessels, setVessels] = useState<TPort[] | null>(null);
   const [ports, setPorts] = useState<TPort[] | null>(null);
   const [selectedVessel, setSelectedVessel] = useState<TPort | null>();
   const [selectedPort, setSelectedPort] = useState<TPort | null>();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [route, setRoute] = useState<TRouteResponse>();
 
   // Get data from API

@@ -2,9 +2,6 @@ import { TRouteResponse } from "../App";
 import "./RouteInfo.css";
 
 export default function RouteInfo({ route }: { route: TRouteResponse }) {
-
-  console.log(route);
-
   const arrivalTime = new Date(route.properties.arrival).toUTCString();
   const departureTime = new Date(route.properties.departure).toUTCString();
   const totalTravelTime = new Date(route.properties.duration).toUTCString();
