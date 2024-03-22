@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import logo from "/logo.png";
 import axios from "axios";
+import SeaRoutes from "./SeaRoutes/SeaRoutes";
 
 const API_PATH = "//127.0.0.1:3002";
 
@@ -11,11 +12,11 @@ type TPort = {
   longitude: number;
 };
 
-type TRouteResponse = {
+export type TRouteResponse = {
   properties: TRoute;
 };
 
-type TRoute = {
+export type TRoute = {
   arrival: number;
   departure: number;
   // details: any[];
@@ -74,9 +75,7 @@ function App() {
     };
     const res = await axios.post(`${API_PATH}/sea-route`, postData);
 
-    console.log(res.data);
-
-    setRoute(res.data);
+    setRoute(res.data.data);
   };
 
   return (
@@ -135,11 +134,7 @@ function App() {
         </button>
       </div>
 
-      {route ? (
-        <div className="result">
-          <p>Loaded!</p>
-        </div>
-      ) : null}
+      {route ? <SeaRoutes route={route} /> : null}
     </>
   );
 }
