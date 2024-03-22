@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import logo from "/logo.png";
 import axios from "axios";
-import SeaRoutes from "./SeaRoutes/SeaRoutes";
+import RouteInfo from "./RouteInfo/RouteInfo";
 
 const API_PATH = "//127.0.0.1:3002";
 
@@ -134,7 +134,7 @@ function App() {
         </button>
       </div>
 
-      {route ? <SeaRoutes route={route} /> : null}
+      {route ? <RouteInfo route={route} /> : null}
     </>
   );
 }

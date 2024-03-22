@@ -1,7 +1,7 @@
 import { TRouteResponse } from "../App";
-import "./SeaRoutes.css";
+import "./RouteInfo.css";
 
-export default function SeaRoutes({ route }: { route: TRouteResponse }) {
+export default function RouteInfo({ route }: { route: TRouteResponse }) {
 
   console.log(route);
 
